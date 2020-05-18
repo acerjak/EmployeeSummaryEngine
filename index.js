@@ -20,9 +20,19 @@ const prompt = require('inquirer')
 //     <title>My Team</title>
 //     <!-- Compiled and minified CSS -->
 //     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+//     <!-- Compiled and minified for icons -->
+//     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 // </head>
 
 
+//manager icon name in materialize
+//<i class="material-icons">supervisor_account</i>
+
+//engineer icon name in materialize
+// <i class="material-icons">account_box</i>
+
+//intern icon name in materlialize
+//<i class="material-icons">school</i>
 
 
 //to be added at bottom of page when all is rendered
