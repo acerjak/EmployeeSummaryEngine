@@ -1,5 +1,44 @@
 const prompt = require('inquirer')
 
+const addManager = () => {
+    
+}
+
+class Member {
+    constructor (Name, Email) {
+        this.Name = Name
+        this.Email = Email
+    }
+}
+
+class Manager extends Member {
+    constructor (Name, Email, GitHub) {
+        super(Name, Email)
+        this.GitHub = GitHub
+    }
+}
+
+class Engineer extends Member {
+    constructor (Name, Email, GitHub) {
+        super(Name, Email)
+        this.GitHub = GitHub
+    }
+}
+
+class Intern extends Member {
+    constructor (Name, Email, School) {
+        super(Name, Email)
+        this.School = School
+    }
+}
+
+const addEngineer = () => {
+
+}
+
+const addIntern = () => {
+
+}
 
 
 
@@ -8,8 +47,7 @@ const prompt = require('inquirer')
 
 
 
-
-
+module.exports = addManager
 
 //to be added at the top when prompted
 // <!DOCTYPE html>
