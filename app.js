@@ -16,10 +16,13 @@ class Employee {
 
         }
         this.getRole = () => {
-            returns 'Employee'
+            return 'Employee'
         }
     }
 }
+// variable for manager test
+let employee = new Employee('Amanda','12345','engineer')
+
 
 //function for manager w/member info
 class Manager extends Employee {
@@ -31,9 +34,6 @@ class Manager extends Employee {
         }
     }
 }
-
-// variable for manager test
-let manager = new Manager('Amanda','amanda@gmail.com','acerjak')
 
 //function for engineer w/member info
 class Engineer extends Employee {
