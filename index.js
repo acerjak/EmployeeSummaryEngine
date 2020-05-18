@@ -26,13 +26,13 @@ const prompt = require('inquirer')
 
 
 //manager icon name in materialize
-//<i class="material-icons">supervisor_account</i>
+//<i class="material-icons small">supervisor_account</i>
 
 //engineer icon name in materialize
-// <i class="material-icons">account_box</i>
+// <i class="material-icons small">account_box</i>
 
 //intern icon name in materlialize
-//<i class="material-icons">school</i>
+//<i class="material-icons small">school</i>
 
 
 //to be added at bottom of page when all is rendered
