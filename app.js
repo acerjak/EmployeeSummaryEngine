@@ -1,10 +1,10 @@
 //bring in inquirer
 const {prompt} = require('inquirer')
 const {promisify} = require('util')
-// const {appendFile, readFile, writeFile} = require('fs')
+const {appendFile, writeFile} = require('fs')
 
-const af = promisify('appendFile')
-const wf = promisify('writeFile')
+const af = promisify(appendFile)
+const wf = promisify(writeFile)
 
 //bring in class constructors from other js files
 const Employee = require('./lib/Employee.js')
@@ -20,9 +20,7 @@ wf('team.html', `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Team</title>
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified for icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 </head>
     `, err => {
