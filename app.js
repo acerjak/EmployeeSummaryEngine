@@ -47,47 +47,50 @@ prompt ([
 },
 ])
     .then(responses => {
+        responses.name = name
+        responses.id = id
+        responses.email = email
         responses = new Employee()
         console.log(responses)
     })
     .catch(err => console.log(err))
 
 .then(responses => {
-    prompt ({
+    prompt ([{
     type: 'list',
     name: 'role',
     message: 'Please choose the role of the employee:',
     choices: ['Manager', 'Engineer', 'Intern']
-})
+}])
     .then(responses => {
         console.log(responses.role)
         switch (responses.role) {
-            case 'Manager':
-                console.log("new manager")
-                respones = new Manager ()
+            case 'Manager': 
                 prompt ([{
                     type: 'input',
                     name: 'officeNumber',
                     message: "Enter manager's office number:"
                 }])
+                // console.log("new manager")
+                responses = new Manager ()
                 break
             case 'Engineer':
-                console.log("new engineer")
-                respones = new Engineer ()
-                prompt([{
+                prompt ([{
                     type: 'input',
-                    name: 'github',
+                    name: 'githubUser',
                     messsage: "Enter engineer's GitHub username:"
                 }])
+                // console.log("new engineer")
+                responses = new Engineer ()
                 break
             case 'Intern':
-                console.log("new intern")
-                responses = new Intern ()
                 prompt ([{
                     type: 'input',
                     name: 'school',
                     message: "Enter intern's school:"
                 }])
+                // console.log("new intern")
+                responses = new Intern ()
                 break
         }
     })
@@ -101,20 +104,20 @@ prompt ([
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${name}</h2>
-            <h3>Manager</h3>
-            Email: ${email}
-            Office Number: ${officeNumber}
+            <h2>Name: ${responses.name}</h2>
+            <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
+            Email: ${responses.email}
+            Office Number: ${responses.officeNumber}
         </span>
       </div>
     </div>
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${name}</h2>
-            <h3>Engineer</h3>
-            Email: ${email}
-            GitHub: ${github}
+            <h2>Name: ${responses.name}</h2>
+            <h3><i class="material-icons small">account_box</i>Engineer</h3>
+            Email: ${responses.email}
+            GitHub: ${responses.github}
         </span>
       </div>
     </div>
@@ -122,10 +125,10 @@ prompt ([
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${name}</h2>
-            <h3>Intern</h3>
-            Email: ${email}
-            School: ${school}
+            <h2>Name: ${responses.name}</h2>
+            <h3><i class="material-icons small">school</i>Intern</h3>
+            Email: ${responses.email}
+            School: ${responses.school}
         </span>
       </div>
     </div>
