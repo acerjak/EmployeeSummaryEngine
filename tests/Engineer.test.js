@@ -20,7 +20,7 @@ test("Can set GitHub account via constructor", () => {
 //test for specific role: Engineer
 test("Run getRole and return specific role", () => {
     const title = "Engineer"
-    const engineer = new Engineer('Amanda', '23456', 'email@email.com')
+    const engineer = new Engineer('Amanda', 1, 'email@email.com')
     expect(engineer.getRole()).toBe(title)
 })
 
