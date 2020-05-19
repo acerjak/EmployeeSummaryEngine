@@ -9,6 +9,14 @@ test("Can set school via constructor", () => {
     const employee = new Intern("Foo", 1, "test@test.com", schoolValue);
     expect(employee.school).toBe(schoolValue);
   });
+
+//test function to retrieve school
+  test("Can get school via getSchool()", () => {
+    const schoolValue = "UCI";
+    const employee = new Intern("Foo", 1, "test@test.com", schoolValue);
+    expect(employee.getSchool()).toBe(schoolValue);
+  });
+
 //test for specific role: Intern
 test("Run getRole and return specific role", () => {
     const title = 'Intern'
@@ -17,9 +25,5 @@ test("Run getRole and return specific role", () => {
 })
 
   
-//   test("Can get school via getSchool()", () => {
-//     const testValue = "UCLA";
-//     const e = new Intern("Foo", 1, "test@test.com", testValue);
-//     expect(e.getSchool()).toBe(testValue);
-//   });
+
   
