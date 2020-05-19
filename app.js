@@ -23,6 +23,8 @@ wf('team.html', `
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 </head>
+<body>
+<div class="row">
     `, err => {
         if (err) {
             console.log(err)
@@ -47,11 +49,9 @@ prompt ([
 },
 ])
     .then(responses => {
-        responses.name = name
-        responses.id = id
-        responses.email = email
-        responses = new Employee()
-        console.log(responses)
+        this.name = Employee(name)
+        this.id = Employee(id)
+        this.email = Employee(email)
     })
     .catch(err => console.log(err))
 
@@ -71,17 +71,43 @@ prompt ([
                     name: 'officeNumber',
                     message: "Enter manager's office number:"
                 }])
+                .then(responses => {
+                responses = Manager.officeNumber
+                af('team.html', `
+    <div class="col s12 m5">
+      <div class="card-panel teal">
+        <span class="white-text">
+            <h2>Name: ${Manager.responses.name}</h2>
+            <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
+            Email: ${Manager.responses.email}
+            Office Number: ${Manager.responses.officeNumber}
+        </span>
+      </div>
+    </div>`)})
                 // console.log("new manager")
-                responses = new Manager ()
                 break
             case 'Engineer':
                 prompt ([{
                     type: 'input',
-                    name: 'githubUser',
-                    messsage: "Enter engineer's GitHub username:"
+                    name: 'github',
+                    message: "Enter Github username:"
                 }])
+                .then(responses => {
+                    af('team.html', `
+                        <div class="col s12 m5">
+      <div class="card-panel teal">
+        <span class="white-text">
+            <h2>Name: ${Engineer.responses.name}</h2>
+            <h3><i class="material-icons small">account_box</i>Engineer</h3>
+            Email: ${Engineer.responses.email}
+            GitHub: ${Engineer.responses.github}
+        </span>
+      </div>
+    </div>
+    `)
+                })
                 // console.log("new engineer")
-                responses = new Engineer ()
+                responses = Engineer.github
                 break
             case 'Intern':
                 prompt ([{
@@ -89,58 +115,39 @@ prompt ([
                     name: 'school',
                     message: "Enter intern's school:"
                 }])
+                .then(responses => {
+                    af('team.html', `
+                    <div class="row">
+                    <div class="col s12 m5">
+                      <div class="card-panel teal">
+                        <span class="white-text">
+                            <h2>Name: ${Intern.responses.name}</h2>
+                            <h3><i class="material-icons small">school</i>Intern</h3>
+                            Email: ${Intern.responses.responses.email}
+                            School: ${Intern.responses.school}
+                        </span>
+                      </div>
+                    </div>
+                `, err => {
+    if (err) {
+        console.log(err)
+    }
+})
+})
                 // console.log("new intern")
-                responses = new Intern ()
+                responses = Intern.school
                 break
         }
     })
     .catch(err => console.log(err))
 })
 
-.then(responses => {
+
+
+
+    .then(responses => {
     af('team.html', `
-<body>
-<div class="row">
-    <div class="col s12 m5">
-      <div class="card-panel teal">
-        <span class="white-text">
-            <h2>Name: ${responses.name}</h2>
-            <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
-            Email: ${responses.email}
-            Office Number: ${responses.officeNumber}
-        </span>
-      </div>
     </div>
-    <div class="col s12 m5">
-      <div class="card-panel teal">
-        <span class="white-text">
-            <h2>Name: ${responses.name}</h2>
-            <h3><i class="material-icons small">account_box</i>Engineer</h3>
-            Email: ${responses.email}
-            GitHub: ${responses.github}
-        </span>
-      </div>
-    </div>
-    <div class="row">
-    <div class="col s12 m5">
-      <div class="card-panel teal">
-        <span class="white-text">
-            <h2>Name: ${responses.name}</h2>
-            <h3><i class="material-icons small">school</i>Intern</h3>
-            Email: ${responses.email}
-            School: ${responses.school}
-        </span>
-      </div>
-    </div>
-</div>
-`, err => {
-    if (err) {
-        console.log(err)
-    }
-})
-})
-.then(responses => {
-    af('team.html', `
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
