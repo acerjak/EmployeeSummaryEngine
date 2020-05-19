@@ -10,6 +10,13 @@ test("Can set GitHub account via constructor", () => {
     expect(employee.github).toBe(gitHubValue);
   });
 
+//test function to retrieve GitHub username
+  test("Can get GitHub username via getGithub()", () => {
+    const gitHubValue = "GitHubUser";
+    const employee = new Engineer("Foo", 1, "test@test.com", gitHubValue);
+    expect(employee.getGithub()).toBe(gitHubValue);
+  });
+
 //test for specific role: Engineer
 test("Run getRole and return specific role", () => {
     const title = "Engineer"
@@ -21,9 +28,5 @@ test("Run getRole and return specific role", () => {
 
  
   
-//   test("Can get GitHub username via getGithub()", () => {
-//     const testValue = "GitHubUser";
-//     const e = new Engineer("Foo", 1, "test@test.com", testValue);
-//     expect(e.getGithub()).toBe(testValue);
-//   });
+
   
