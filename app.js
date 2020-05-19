@@ -13,7 +13,7 @@ const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
 
 // buildTeam = []
-wf('team.html', `
+wf('./output/team.html', `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +73,7 @@ prompt ([
                 }])
                 .then(responses => {
                 responses = Manager.officeNumber
-                af('team.html', `
+                af('./output/team.html', `
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
@@ -93,7 +93,7 @@ prompt ([
                     message: "Enter Github username:"
                 }])
                 .then(responses => {
-                    af('team.html', `
+                    af('./output/team.html', `
                         <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
@@ -116,7 +116,7 @@ prompt ([
                     message: "Enter intern's school:"
                 }])
                 .then(responses => {
-                    af('team.html', `
+                    af('./output/team.html', `
                     <div class="row">
                     <div class="col s12 m5">
                       <div class="card-panel teal">
@@ -146,7 +146,7 @@ prompt ([
 
 
     .then(responses => {
-    af('team.html', `
+    af('./output/team.html', `
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
