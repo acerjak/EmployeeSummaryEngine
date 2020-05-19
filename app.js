@@ -30,7 +30,7 @@ wf('./output/team.html', `
             console.log(err)
         }
     })
-
+new Employee ()
 prompt ([
 {
     type: 'input',
@@ -49,9 +49,9 @@ prompt ([
 },
 ])
     .then(responses => {
-        this.name = Employee(name)
-        this.id = Employee(id)
-        this.email = Employee(email)
+        responses.name = Employee(name)
+        responses.id = Employee(id)
+        responses.email = Employee(email)
     })
     .catch(err => console.log(err))
 
@@ -72,7 +72,7 @@ prompt ([
                     message: "Enter manager's office number:"
                 }])
                 .then(responses => {
-                responses = Manager.officeNumber
+                responses.officeNumber = Manager(officeNumber)
                 af('./output/team.html', `
     <div class="col s12 m5">
       <div class="card-panel teal">
@@ -93,6 +93,7 @@ prompt ([
                     message: "Enter Github username:"
                 }])
                 .then(responses => {
+                    responses.github = Engineer(github)
                     af('./output/team.html', `
                         <div class="col s12 m5">
       <div class="card-panel teal">
@@ -107,7 +108,6 @@ prompt ([
     `)
                 })
                 // console.log("new engineer")
-                responses = Engineer.github
                 break
             case 'Intern':
                 prompt ([{
@@ -116,6 +116,7 @@ prompt ([
                     message: "Enter intern's school:"
                 }])
                 .then(responses => {
+                    responses.school = Intern(school)
                     af('./output/team.html', `
                     <div class="row">
                     <div class="col s12 m5">
@@ -135,7 +136,6 @@ prompt ([
 })
 })
                 // console.log("new intern")
-                responses = Intern.school
                 break
         }
     })
