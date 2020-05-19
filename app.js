@@ -14,7 +14,7 @@ const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
 
 //define empty array
-let employee = []
+let employees = []
 
 //write top half of HTML file
 wf('./output/team.html', `
@@ -49,17 +49,21 @@ let roleQuestions = () => {
             switch (role) {
                 case 'Manager': 
                     managerQuestions()
+                    // roleQuestions()
                     // console.log("new manager")
                     break
                 case 'Engineer':
                     engineerQuestions()
+                    // roleQuestions()
                     // console.log("new engineer")
                     break
                 case 'Intern':
                     internQuestions()
+                    // roleQuestions()
                     // console.log("new intern")
                     break
                 case 'Finish Roster':
+                    endRoster()
                     break
             }
         })                   
@@ -93,7 +97,10 @@ let managerQuestions = () => {
     ])
         .then(({name, id, email, officeNumber})=> {
         let newManager = new Manager(name, id, email, officeNumber)
-        employee.push(newManager)
+        console.log(newManager)
+        employees.push(newManager)
+        // createManager()
+        
         })
         .catch(err => console.log(err))
 }
@@ -124,7 +131,9 @@ let engineerQuestions = () =>{
     ])
         .then(({name, id, email, github})=> {
         let newEngineer = new Engineer(name, id, email, github)
-        employee.push(newEngineer)
+        console.log(newEngineer)
+        employees.push(newEngineer)
+        // createEngineer()
         })
         .catch(err => console.log(err))
 }
@@ -155,11 +164,88 @@ let internQuestions = () =>{
     ])
         .then(({name, id, email, school})=> {
         let newIntern = new Intern(name, id, email, school)
-        employee.push(newIntern)
+        console.log(newIntern)
+        employees.push(newIntern)
+        // createIntern()
         })
         .catch(err => console.log(err))
 }
 
+
+// manager function for html appendFile             
+let createManager = (Manager) => {
+    af('./output/team.html', `
+    <div class="col s12 m5">
+      <div class="card-panel teal">
+        <span class="white-text">
+            <h2>Name: ${Manager.name}</h2>
+            <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
+            Email: ${Manager.email}
+            Office Number: ${Manager.officeNumber}
+        </span>
+      </div>
+    </div>`, err => {
+        if (err) {
+            console.log(err)
+        }
+    })
+}
+
+// engineer function for html appendfile
+let createEngineer = (Engineer) => {
+    af('./output/team.html', `
+    <div class="col s12 m5">
+      <div class="card-panel teal">
+        <span class="white-text">
+            <h2>Name: ${Engineer.name}</h2>
+            <h3><i class="material-icons small">account_box</i>Engineer</h3>
+            Email: ${Engineer.email}
+            GitHub: ${Engineer.github}
+        </span>
+      </div>
+    </div>
+    `, err => {
+        if (err) {
+            console.log(err)
+        }
+    })
+}
+
+    //intern function for html appendfile
+let createIntern = (Intern) => {
+    af('./output/team.html', `
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+            <span class="white-text">
+                <h2>Name: ${Intern.name}</h2>
+                <h3><i class="material-icons small">school</i>Intern</h3>
+                Email: ${Intern.email}
+                School: ${Intern.school}
+            </span>
+        </div>
+    </div>
+    `, err => {
+        if (err) {
+        console.log(err)
+        }
+    })
+}
+
+let endRoster = () => {
+    af('./output/team.html', `
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+    `, err => {
+        if (err) {
+            console.log(err)
+        }
+    })
+} 
+    
+
+    //do we need this set???
 // let employeeQuestions = () => {    
 //     prompt ([
 // {
@@ -196,61 +282,3 @@ let internQuestions = () =>{
 
 
 
-
-    //manager html appendFile
-                
-    //             af('./output/team.html', `
-    // <div class="col s12 m5">
-    //   <div class="card-panel teal">
-    //     <span class="white-text">
-    //         <h2>Name: ${manager.name}</h2>
-    //         <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
-    //         Email: ${manager.email}
-    //         Office Number: ${manager.officeNumber}
-    //     </span>
-    //   </div>
-    // </div>`)})
-
-// engineer html appendfile
-    //                 af('./output/team.html', `
-    //                     <div class="col s12 m5">
-    //   <div class="card-panel teal">
-    //     <span class="white-text">
-    //         <h2>Name: ${Engineer.responses.name}</h2>
-    //         <h3><i class="material-icons small">account_box</i>Engineer</h3>
-    //         Email: ${Engineer.responses.email}
-    //         GitHub: ${Engineer.responses.github}
-    //     </span>
-    //   </div>
-    // </div>
-    // `)
-
-    //intern html appendfile
-    //                 af('./output/team.html', `
-    //                 <div class="row">
-    //                 <div class="col s12 m5">
-    //                   <div class="card-panel teal">
-    //                     <span class="white-text">
-    //                         <h2>Name: ${Intern.responses.name}</h2>
-    //                         <h3><i class="material-icons small">school</i>Intern</h3>
-    //                         Email: ${Intern.responses.responses.email}
-    //                         School: ${Intern.responses.school}
-    //                     </span>
-    //                   </div>
-    //                 </div>
-    //             `, err => {
-    // if (err) {
-    //     console.log(err)
-    // }
-//     .then(responses => {
-//     af('./output/team.html', `
-//     </div>
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-// </body>
-// </html>
-//     `, err => {
-//         if (err) {
-//             console.log(err)
-//         }
-//     })
-// })
