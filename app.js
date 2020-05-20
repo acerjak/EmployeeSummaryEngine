@@ -99,8 +99,7 @@ let managerQuestions = () => {
         let newManager = new Manager(name, id, email, officeNumber)
         console.log(newManager)
         employees.push(newManager)
-        // createManager()
-        
+        createManager()
         })
         .catch(err => console.log(err))
 }
@@ -133,7 +132,7 @@ let engineerQuestions = () =>{
         let newEngineer = new Engineer(name, id, email, github)
         console.log(newEngineer)
         employees.push(newEngineer)
-        // createEngineer()
+        createEngineer()
         })
         .catch(err => console.log(err))
 }
@@ -166,7 +165,7 @@ let internQuestions = () =>{
         let newIntern = new Intern(name, id, email, school)
         console.log(newIntern)
         employees.push(newIntern)
-        // createIntern()
+        createIntern()
         })
         .catch(err => console.log(err))
 }
