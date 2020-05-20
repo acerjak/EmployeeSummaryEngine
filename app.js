@@ -174,10 +174,12 @@ let createManager = (responses) => {
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${responses.name}</h2>
-            <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
-            Email: ${responses.email}
-            Office Number: ${responses.officeNumber}
+            <h3>Name: ${responses.name}</h3>
+            <h4><i class="material-icons small">supervisor_account</i>Manager</h4>
+            <ul>
+            <li>Email: ${responses.email}</li>
+            <li>Office Number: ${responses.officeNumber}</li>
+            </ul>
         </span>
       </div>
     </div>`, err => {
@@ -194,10 +196,12 @@ let createEngineer = (responses) => {
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${responses.name}</h2>
-            <h3><i class="material-icons small">account_box</i>Engineer</h3>
-            Email: ${responses.email}
-            GitHub: ${responses.github}
+            <h3>Name: ${responses.name}</h3>
+            <h4><i class="material-icons small">account_box</i>Engineer</h4>
+            <ul>
+            <li>Email: ${responses.email}</li>
+            <li>GitHub: ${responses.github}</li>
+            </ul>
         </span>
       </div>
     </div>
@@ -215,10 +219,12 @@ let createIntern = (responses) => {
     <div class="col s12 m5">
         <div class="card-panel teal">
             <span class="white-text">
-                <h2>Name: ${responses.name}</h2>
-                <h3><i class="material-icons small">school</i>Intern</h3>
-                Email: ${responses.email}
-                School: ${responses.school}
+                <h3>Name: ${responses.name}</h3>
+                <h4><i class="material-icons small">school</i>Intern</h4>
+                <ul>
+                <li>Email: ${responses.email}</li>
+                <li>School: ${responses.school}</li>
+                </ul>
             </span>
         </div>
     </div>
