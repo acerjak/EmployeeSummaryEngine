@@ -185,7 +185,7 @@ let createManager = (responses) => {
             console.log(err)
         }
     })
-    // roleQuestions()
+    roleQuestions()
 }
 
 // engineer function for html appendfile
@@ -206,7 +206,7 @@ let createEngineer = (responses) => {
             console.log(err)
         }
     })
-    // roleQuestions()
+    roleQuestions()
 }
 
     //intern function for html appendfile
@@ -227,7 +227,7 @@ let createIntern = (responses) => {
         console.log(err)
         }
     })
-    // roleQuestions()
+    roleQuestions()
 }
 
 let endRoster = () => {
