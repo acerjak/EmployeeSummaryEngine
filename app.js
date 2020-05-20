@@ -49,17 +49,14 @@ let roleQuestions = () => {
             switch (role) {
                 case 'Manager': 
                     managerQuestions()
-                    // roleQuestions()
                     // console.log("new manager")
                     break
                 case 'Engineer':
                     engineerQuestions()
-                    // roleQuestions()
                     // console.log("new engineer")
                     break
                 case 'Intern':
                     internQuestions()
-                    // roleQuestions()
                     // console.log("new intern")
                     break
                 case 'Finish Roster':
@@ -99,7 +96,7 @@ let managerQuestions = () => {
         let newManager = new Manager(name, id, email, officeNumber)
         console.log(newManager)
         employees.push(newManager)
-        createManager()
+        createManager(newManager)
         })
         .catch(err => console.log(err))
 }
@@ -132,7 +129,7 @@ let engineerQuestions = () =>{
         let newEngineer = new Engineer(name, id, email, github)
         console.log(newEngineer)
         employees.push(newEngineer)
-        createEngineer()
+        createEngineer(newEngineer)
         })
         .catch(err => console.log(err))
 }
@@ -165,22 +162,22 @@ let internQuestions = () =>{
         let newIntern = new Intern(name, id, email, school)
         console.log(newIntern)
         employees.push(newIntern)
-        createIntern()
+        createIntern(newIntern)
         })
         .catch(err => console.log(err))
 }
 
 
 // manager function for html appendFile             
-let createManager = (Manager) => {
+let createManager = (responses) => {
     af('./output/team.html', `
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${Manager.name}</h2>
+            <h2>Name: ${responses.name}</h2>
             <h3><i class="material-icons small">supervisor_account</i>Manager</h3>
-            Email: ${Manager.email}
-            Office Number: ${Manager.officeNumber}
+            Email: ${responses.email}
+            Office Number: ${responses.officeNumber}
         </span>
       </div>
     </div>`, err => {
@@ -188,18 +185,19 @@ let createManager = (Manager) => {
             console.log(err)
         }
     })
+    // roleQuestions()
 }
 
 // engineer function for html appendfile
-let createEngineer = (Engineer) => {
+let createEngineer = (responses) => {
     af('./output/team.html', `
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-            <h2>Name: ${Engineer.name}</h2>
+            <h2>Name: ${responses.name}</h2>
             <h3><i class="material-icons small">account_box</i>Engineer</h3>
-            Email: ${Engineer.email}
-            GitHub: ${Engineer.github}
+            Email: ${responses.email}
+            GitHub: ${responses.github}
         </span>
       </div>
     </div>
@@ -208,18 +206,19 @@ let createEngineer = (Engineer) => {
             console.log(err)
         }
     })
+    // roleQuestions()
 }
 
     //intern function for html appendfile
-let createIntern = (Intern) => {
+let createIntern = (responses) => {
     af('./output/team.html', `
     <div class="col s12 m5">
         <div class="card-panel teal">
             <span class="white-text">
-                <h2>Name: ${Intern.name}</h2>
+                <h2>Name: ${responses.name}</h2>
                 <h3><i class="material-icons small">school</i>Intern</h3>
-                Email: ${Intern.email}
-                School: ${Intern.school}
+                Email: ${responses.email}
+                School: ${responses.school}
             </span>
         </div>
     </div>
@@ -228,6 +227,7 @@ let createIntern = (Intern) => {
         console.log(err)
         }
     })
+    // roleQuestions()
 }
 
 let endRoster = () => {
