@@ -5,7 +5,7 @@
 * [Installation](#installation)
 * [Start](#start)
 * [Usage](#usage)
-* [License](#license)
+* [Gif](#gif)
 * [Credits](#credits)
 * [Questions](#questions)
 ## Installation
@@ -15,16 +15,12 @@
 > Please enter "node app.js" into the terminal to start the application.
 ## Usage
 > This employee roster generator should be used to log emails and github profiles for a software engineering team with managers, engineers and interns. The application then generates an HTML document to display the information you entered.
-## Credits
-> I worked on this project with fellow classmates and some google-fu. I would like to thank ScreenToGif for helping me create the below gif.
-## License
-> None
-## Questions
-> Please send any inquiries or concerns through [acerjak](https://api.github.com/users/acerjak "GitHub Profile") or at amandacerjak@gmail.com.
-
-![profilepic](https://avatars1.githubusercontent.com/u/62491401?v=4 "acerjak")
-***
-
+## Gif
 ![gif](/gif/generatorGifUpdated.gif
 "gif")
+## Credits
+> I worked on this project with fellow classmates and some google-fu. I would like to thank ScreenToGif for helping me create the below gif.
+## Questions
+> Please send any inquiries or concerns through [acerjak](https://api.github.com/users/acerjak "GitHub Profile") or at amandacerjak@gmail.com.
+***
 #### Created by acerjak May 2020
